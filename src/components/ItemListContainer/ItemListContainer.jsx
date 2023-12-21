@@ -1,6 +1,6 @@
 const ItemListContainer = ({ msg }) => {
   return (
-    <div className="border rounded p-2">
+    <div className="border border-3 rounded p-2">
       {msg}
     </div>
   )

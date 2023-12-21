@@ -3,7 +3,7 @@ import CartWidget from '../CartWidget/CartWidget'
 const NavBar = ({itemCount}) => {
   return (
     <nav className="navbar navbar-expand-lg p-0 m-0">
-      <div className={"container border rounded p-2"}>
+      <div className={"container border border-3 rounded p-2"}>
         <a className="navbar-brand m-0" href="#">
           <i className="bi bi-book fs-2"></i>
         </a>

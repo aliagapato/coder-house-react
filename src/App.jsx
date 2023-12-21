@@ -22,10 +22,10 @@ function App() {
       <NavBar itemCount={itemCount} />
       <div className="container mt-4 p-0">
         <div className="row m-0 p-0">
-          <div className="col col-12 col-lg-3 m-0 p-0">
+          <div className="col col-12 col-lg-2 m-0 p-0">
             <SideBar />
           </div>
-          <div className="col col-12 col-lg-9 m-0 p-0 ps-0 ps-lg-4">
+          <div className="col col-12 col-lg-10 m-0 p-0 ps-0 ps-lg-4">
             <ItemListContainer msg="Lumos, es lo contrario de Nox"/>
             {/* Por que cuando uso el codigo comentado, se re renderiza la sidebar? */}
             {/* <div className="container-fluid text-center my-3">
