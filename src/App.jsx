@@ -1,23 +1,49 @@
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
-import Button from './components/Button/Button'
-import ItemCount from './components/ItemCount/ItemCount'
-import HorizontalDivider from './components/Utils/Divider/HorizontalDivider'
+import SideBar from './components/SideBar/SideBar'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+// import Button from './components/Button/Button'
+// import ItemCount from './components/ItemCount/ItemCount'
+// import HorizontalDivider from './components/Utils/Divider/HorizontalDivider'
+import { useState } from 'react'
+import RandomInt from './Utils/RandomInt'
 
 function App() {
+  const [itemCount, setItemCount] = useState(RandomInt())
+  
+  // const decrement = () => {
+  //   if(itemCount == 0) return 
+  //   setItemCount(itemCount - 1)
+  // }
+  // const increment = () => setItemCount(itemCount + 1)
+
   return (
     <>
-      <h1>Componente Navbar</h1>
-      <NavBar />
-      <HorizontalDivider />
-      <h1>Componente Button con props</h1>
-      <Button evento={() => console.log('Primary')} label='Primary' color='primary' />
-      <Button evento={() => console.log('Success')} label='Success' color='success' />
-      <Button evento={() => console.log('Danger')} label='Danger' color='danger' />
-      <HorizontalDivider />
-      <h1>Componente ItemCount</h1>
-      <ItemCount />
-
+      <NavBar itemCount={itemCount} />
+      <div className="container mt-4 p-0">
+        <div className="row m-0 p-0">
+          <div className="col col-12 col-lg-3 m-0 p-0">
+            <SideBar />
+          </div>
+          <div className="col col-12 col-lg-9 m-0 p-0 ps-0 ps-lg-4">
+            <ItemListContainer />
+            {/* Por que cuando uso el codigo comentado, se re renderiza la sidebar? */}
+            {/* <div className="container-fluid text-center my-3">
+              <div className="row">
+                <div className="col">
+                  <button onClick={decrement} className="btn btn-outline-danger">Decrementar carrito</button>
+                </div>
+                <div className="col">
+                  <h1>{itemCount}</h1>
+                </div>
+                <div className="col">
+                  <button onClick={increment} className="btn btn-outline-success">incrementar carrito</button>
+                </div>
+              </div>
+            </div> */}
+          </div>
+        </div>
+      </div>
     </>
   )
 }

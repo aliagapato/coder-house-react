@@ -1,14 +1,30 @@
-import classes from './NavBar.module.css'
+import CartWidget from '../CartWidget/CartWidget'
 
-const NavBar = () => {
+const NavBar = ({itemCount}) => {
   return (
-    <nav className={classes.nuevaFuente}>
-      <h1>E-Commerce</h1>
-      <section>
-        <button className='btn btn-outline-primary m-2'>Inicio</button>
-        <button className='btn btn-outline-success m-2'>Productos</button>
-        <button className='btn btn-outline-danger m-2'>Login </button>
-      </section>
+    <nav className="navbar navbar-expand-lg p-0 m-0">
+      <div className={"container border rounded p-2"}>
+        <a className="navbar-brand m-0" href="#">
+          <i className="bi bi-book fs-2"></i>
+        </a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link text-black" aria-current="page" href="#">Lumos Store</a>
+            </li>
+          </ul>
+          <form className="d-flex me-2 mb-2 mb-lg-0" role="search">
+            <input className="form-control me-2 border-warning" type="search" placeholder="Buscar" aria-label="Search" />
+              <button className="btn btn-outline-warning" type="submit">
+                <i className="bi bi-search"></i>
+              </button>
+          </form>
+          <CartWidget itemCount={itemCount}/>
+        </div>
+      </div>
     </nav>
   )
 }
