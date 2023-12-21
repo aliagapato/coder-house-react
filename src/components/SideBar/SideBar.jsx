@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import SideBarElement from "./SideBarElement/SideBarElement"
-
+import RandomInt from '../../Utils/RandomInt'
 // crear SidebarElementsList para controlar listado?
 
 const SideBar = () => {
   const categories = ['Libros', 'E-Books', 'Peliculas', 'Hechizos']
-  const [activeItem, setActiveItem] = useState()
+  const [activeItem, setActiveItem] = useState(categories[RandomInt(4)])
   const handlerClick = (el) => setActiveItem(el.target.dataset.id)
 
   return (
