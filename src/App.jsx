@@ -26,7 +26,7 @@ function App() {
             <SideBar />
           </div>
           <div className="col col-12 col-lg-9 m-0 p-0 ps-0 ps-lg-4">
-            <ItemListContainer />
+            <ItemListContainer msg="Lumos, es lo contrario de Nox"/>
             {/* Por que cuando uso el codigo comentado, se re renderiza la sidebar? */}
             {/* <div className="container-fluid text-center my-3">
               <div className="row">

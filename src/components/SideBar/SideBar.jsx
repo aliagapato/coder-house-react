@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import SideBarElement from "./SideBarElement/SideBarElement"
 
 // crear SidebarElementsList para controlar listado?
@@ -22,13 +23,16 @@ const SideBar = () => {
     }
   ]
 
-
+  const [activeCategory, setActiveCategory] = useState('border border-warning')
+  const [activeBadge, setActiveBadge] = useState('bg-warning')
+  // border border-warning text-warning
+  
   return (
     <ul className="list-group">
       {
         categories.map((category, index) => {
           return (
-            <SideBarElement key={"Sidebar-"+index} name={category.name} id={category.id} />
+            <SideBarElement key={"Sidebar-"+index} id={index} name={category.name} evento={() => console.log(category.name)} activeCategory={activeCategory} activeBadge={activeBadge}/>
           )          
         })
       }
