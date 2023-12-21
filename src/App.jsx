@@ -11,11 +11,11 @@ import RandomInt from './Utils/RandomInt'
 function App() {
   const [itemCount, setItemCount] = useState(RandomInt())
   
-  // const decrement = () => {
-  //   if(itemCount == 0) return 
-  //   setItemCount(itemCount - 1)
-  // }
-  // const increment = () => setItemCount(itemCount + 1)
+  const decrement = () => {
+    if(itemCount == 0) return 
+    setItemCount(itemCount - 1)
+  }
+  const increment = () => setItemCount(itemCount + 1)
 
   return (
     <>
@@ -28,7 +28,7 @@ function App() {
           <div className="col col-12 col-lg-10 m-0 p-0 ps-0 ps-lg-4">
             <ItemListContainer msg="Lumos, es lo contrario de Nox"/>
             {/* Por que cuando uso el codigo comentado, se re renderiza la sidebar? */}
-            {/* <div className="container-fluid text-center my-3">
+            <div className="container-fluid text-center my-3">
               <div className="row">
                 <div className="col">
                   <button onClick={decrement} className="btn btn-outline-danger">Decrementar carrito</button>
@@ -40,7 +40,7 @@ function App() {
                   <button onClick={increment} className="btn btn-outline-success">incrementar carrito</button>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
