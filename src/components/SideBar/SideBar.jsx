@@ -4,35 +4,16 @@ import SideBarElement from "./SideBarElement/SideBarElement"
 // crear SidebarElementsList para controlar listado?
 
 const SideBar = () => {
-  const categories = [
-    {
-      'name': 'Libros',
-      id: 0
-    },
-    {
-      'name': 'E-Books',
-      id: 1
-    },
-    {
-      'name': 'Peliculas',
-      id: 2
-    },
-    {
-      'name': 'Hechizos',
-      id: 3
-    }
-  ]
+  const categories = ['Libros', 'E-Books', 'Peliculas', 'Hechizos']
+  const [activeItem, setActiveItem] = useState()
+  const handlerClick = (el) => setActiveItem(el.target.dataset.id)
 
-  const [activeCategory, setActiveCategory] = useState('border border-warning')
-  const [activeBadge, setActiveBadge] = useState('bg-warning')
-  // border border-warning text-warning
-  
   return (
     <ul className="list-group">
       {
         categories.map((category, index) => {
           return (
-            <SideBarElement key={"Sidebar-"+index} id={index} name={category.name} evento={() => console.log(category.name)} activeCategory={activeCategory} activeBadge={activeBadge}/>
+            <SideBarElement key={"Sidebar-"+index} evento={handlerClick} id={index} category={category} activeItem={activeItem} />
           )          
         })
       }
