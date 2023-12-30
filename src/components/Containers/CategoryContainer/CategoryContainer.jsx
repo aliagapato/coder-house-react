@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from 'react'
 // import Constans from "../../utils/Constants"
-import getCategories from './../../assets/mocks/AsyncCategories'
+import getCategories from './../../../assets/mocks/AsyncCategories'
 import CategoryList from './CategoryList/CategoryList'
-import CategoryListPlaceHolder from './CategoryListPlaceHolder'
+import CategoryListPlaceHolder from './CategoryPlaceHolder'
 
 const CategoryContainer = () => {
   const [isError, setIsError] = useState(false)
