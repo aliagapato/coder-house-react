@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import LandingContainer from './../Containers/LandingContainer/LandingContainer'
-import HechizosContainer from './../Containers/HechizosContainer/HechizosContainer'
-import LibrosContainer from './../Containers/LibrosContainer/LibrosContainer'
-import PeliculasContainer from './../Containers/PeliculasContainer/PeliculasContainer'
-import PersonajesContainer from './../Containers/PersonajesContainer/PersonajesContainer'
-import PocionesContainer from './../Containers/PocionesContainer/PocionesContainer'
+import LandingContainer from '../LandingContainer/LandingContainer'
+import HechizosContainer from '../HechizosContainer/HechizosContainer'
+import LibrosContainer from '../LibrosContainer/LibrosContainer'
+import PeliculasContainer from '../PeliculasContainer/PeliculasContainer'
+import PersonajesContainer from '../PersonajesContainer/PersonajesContainer'
+import PocionesContainer from '../PocionesContainer/PocionesContainer'
+import ErrorPath from '../../Utils/ErrorPath/ErrorPath'
 
 const MainContainer = () => {
   return (
@@ -16,6 +17,7 @@ const MainContainer = () => {
         <Route path='/coder-house-react/Peliculas' element={<PeliculasContainer />} />
         <Route path='/coder-house-react/Personajes' element={<PersonajesContainer />} />
         <Route path='/coder-house-react/Pociones' element={<PocionesContainer />} />
+        <Route path='*' element={<ErrorPath />} />
       </Routes>
     </>
   )
