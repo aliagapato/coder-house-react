@@ -14,7 +14,7 @@ const ErrorPath = () => {
           <h1>Error 404</h1>
         </div>
       </div>
-      <div className="row justify-content-center">
+      <div className="row">
         <div className="col-12">
           <div>Oops! Lo sentimos, Nuestro Seeker no pudo encontrar la pagina que buscas!</div>
         </div>

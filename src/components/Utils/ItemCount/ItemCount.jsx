@@ -1,21 +1,51 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import evaluatePercentMessage from './../../../utils/EvaluatePercentMessage'
 
-const ItemCount = () => {
-  const [count, setCount] = useState(0)
-  const decrement = () => setCount(count - 1)
-  const increment = () => setCount(count + 1)
+const ItemCount = ({ stock, initialVulue, onAdd }) => {
+
+  const [quantity, setQuantity] = useState(initialVulue)
+  const msg = useRef(evaluatePercentMessage(stock, initialVulue))
+
+  const add = () => {
+    if (quantity < stock) {
+      let nextState = quantity + 1
+      setQuantity(nextState)
+      msg.current = evaluatePercentMessage(stock, nextState)
+    }
+  }
+
+  const remove = () => {
+    if (quantity >= 1) {
+      let nextState = quantity - 1
+      setQuantity(nextState)
+      msg.current = evaluatePercentMessage(stock, nextState)
+    }
+  }
+
+  useEffect(() => {
+    msg.current = evaluatePercentMessage(stock, quantity)
+  }, [])
 
   return (
-    <div className="container-fluid text-center my-3">
-      <div className="row">
-        <div className="col">
-          <button onClick={decrement} className="btn btn-outline-danger">Decrementar</button>
+    <div className="container-fluid">
+      <div className="row justify-content-center">
+        <div className="col col-lg-1">
+          <button onClick={remove} className="btn border border-3 btn-warning w-100">
+            <span className="fs-3 fw-bolder">-</span>
+          </button>
         </div>
-        <div className="col">
-          <h1>{count}</h1>
+        <div className="col col-12 col-lg-1 text-center pt-2 fw-bold">
+          <h2>{quantity}</h2>
         </div>
-        <div className="col">
-          <button onClick={increment} className="btn btn-outline-success">incrementar</button>
+        <div className="col col-lg-1">
+          <button onClick={add} className="btn border border-3 btn-warning w-100">
+            <span className="fs-3 fw-bolder">+</span>
+          </button>
+        </div>
+      </div>
+      <div className="row mt-2 justify-content-center">
+        <div className="col col-lg-3 justify-content-center">
+          <button onClick={onAdd(quantity)} className="border border-3 btn btn-danger fw-bold w-100" type="submit"><h4>{msg.current}</h4></button>
         </div>
       </div>
     </div>
