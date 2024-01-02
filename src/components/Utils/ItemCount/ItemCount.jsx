@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import evaluatePercentMessage from './../../../utils/EvaluatePercentMessage'
 
-const ItemCount = ({ stock, initialVulue, onAdd }) => {
+const ItemCount = ({ stock = 5, initialVulue = 0 }) => {
 
   const [quantity, setQuantity] = useState(initialVulue)
   const msg = useRef(evaluatePercentMessage(stock, initialVulue))
@@ -27,25 +27,25 @@ const ItemCount = ({ stock, initialVulue, onAdd }) => {
   }, [])
 
   return (
-    <div className="container-fluid">
-      <div className="row justify-content-center">
-        <div className="col col-lg-1">
+    <div style={{ "fontSize": "smaller" }} className="container-fluid p-0">
+      <div className="row justify-content-center ">
+        <div className="col col-12 col-lg-5">
           <button disabled={quantity === 0} onClick={remove} className="btn border border-3 btn-warning w-100">
-            <span className="fs-3 fw-bolder">-</span>
+            <span className="fw-bolder">-</span>
           </button>
         </div>
-        <div className="col col-12 col-lg-1 text-center pt-2 fw-bold">
+        <div className="col col-12 col-lg-2 text-center fw-bold">
           <h2>{quantity}</h2>
         </div>
-        <div className="col col-lg-1">
+        <div className="col col-12 col-lg-5">
           <button disabled={quantity === stock} onClick={add} className="btn border border-3 btn-warning w-100">
-            <span className="fs-3 fw-bolder">+</span>
+            <span className="fw-bolder">+</span>
           </button>
         </div>
       </div>
-      <div className="row mt-2 justify-content-center">
-        <div className="col col-lg-3 justify-content-center">
-          <button disabled={quantity === 0} onClick={onAdd(quantity)} className="border border-3 btn btn-danger fw-bold w-100" type="submit"><h4>{msg.current}</h4></button>
+      <div className="row justify-content-center">
+        <div className="col ">
+          <button disabled={quantity === 0} onClick={() => console.log(quantity)} className="border border-3 btn btn-danger fw-bold w-100" type="submit"><span>{msg.current}</span></button>
         </div>
       </div>
     </div>

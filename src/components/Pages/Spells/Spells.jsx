@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import LoadingBar from "../../Utils/LoadingBar/LoadingBar";
+import ItemList from "../../Utils/ItemList/ItemList";
 
 const Spells = () => {
   const [isError, setIsError] = useState(false)
@@ -59,23 +60,7 @@ const Spells = () => {
 
   return (
     <>
-      <div className="container p-0">
-        <div className="row">
-          {data.current.map(h => {
-            return (
-              <div key={h.id} className="col-12 col-lg-4 mb-4">
-                <div className="card border border-3 rounded">
-                  <div className="card-body">
-                    <h5 className="card-title">id: {h.id}</h5>
-                    <p className="card-text">type: {h.type}</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
+      <ItemList data={data.current} showExampleData={true} />
     </>
   )
 

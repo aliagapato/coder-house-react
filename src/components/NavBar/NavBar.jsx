@@ -13,7 +13,7 @@ const NavBar = ({ itemCount }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#">Lumos Store</a>
+              <a className="nav-link fs-3" aria-current="page" href="#">Lumos Store</a>
             </li>
           </ul>
           <form className="d-flex me-2 mb-4 mb-lg-0" role="search">

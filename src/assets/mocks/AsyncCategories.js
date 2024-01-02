@@ -1,12 +1,5 @@
 const categories = [
   {
-    id: 1,
-    name: 'Hechizos',
-    quantity: 312,
-    localLink: '/coder-house-react/Hechizos',
-    apiLink: 'https://api.potterdb.com/v1/spells?page[number]=0'
-  },
-  {
     id: 2,
     name: 'Libros',
     quantity: 7,
@@ -19,6 +12,13 @@ const categories = [
     quantity: 11,
     localLink: '/coder-house-react/Peliculas',
     apiLink: 'https://api.potterdb.com/v1/movies?page[number]=0'
+  },
+  {
+    id: 1,
+    name: 'Hechizos',
+    quantity: 312,
+    localLink: '/coder-house-react/Hechizos',
+    apiLink: 'https://api.potterdb.com/v1/spells?page[number]=0'
   },
   {
     id: 4,

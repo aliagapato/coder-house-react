@@ -9,8 +9,6 @@ import Footer from './components/Footer/Footer'
 function App() {
   // Necesito un arreglo de objetos para controlar el carrito de compras
   const [itemCount, setItemCount] = useState(0)
-  // const onAdd = (quantity) => console.log('quantity', quantity)
-  // <ItemCount stock={10} initialVulue={0} onAdd={onAdd} />
 
   return (
     <BrowserRouter>
