@@ -34,7 +34,8 @@ const Books = () => {
 
       } finally {
 
-        setIsLoading(false)
+        // solo para efecto de cargando
+        setTimeout(() => setIsLoading(false), 250)
 
       }
     }
