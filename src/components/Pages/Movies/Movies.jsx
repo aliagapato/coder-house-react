@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import LoadingBar from "../../Utils/LoadingBar/LoadingBar";
 
 const Movies = () => {
   const [isError, setIsError] = useState(false)
@@ -43,10 +44,7 @@ const Movies = () => {
 
   if (isLoading) {
     return (
-      // Crear un placeholder mientras carga
-      <>
-        <span>Cargando elementos</span>
-      </>
+      <LoadingBar />
     )
   }
 
