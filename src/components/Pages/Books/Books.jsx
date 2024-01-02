@@ -4,7 +4,7 @@ import LoadingBar from "../../Utils/LoadingBar/LoadingBar";
 
 const Books = () => {
   const [isError, setIsError] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const location = useLocation()
   const STATE_API_LINK = location.state.data.apiLink
   let data = useRef()
@@ -43,7 +43,7 @@ const Books = () => {
   }, [])
 
 
-  if (isLoading) {
+  if ((isLoading) | (data.current === undefined)) {
     return (
       <LoadingBar />
     )
