@@ -3,7 +3,7 @@ import notFound from "/notFound.png"
 
 const ErrorPath = () => {
   return (
-    <div className="container border border-3 mb-4 rounded p-2 text-center align-middle">
+    <div className="container-fluid border border-3 mb-4 rounded p-2 text-center align-middle">
       <div className="row justify-content-center">
         <div className="col-6">
           <img src={notFound} style={{ 'maxWidth': '50%', 'height': 'auto' }} alt="notFound" />

@@ -4,13 +4,15 @@ import { Link } from "react-router-dom"
 import classes from './SideBarElement/SideBarElement.module.css'
 
 const SideBarList = ({ categories }) => {
-  const [activeItem, setActiveItem] = useState(0)
+  const [activeItem, setActiveItem] = useState('inicio')
 
   const getActiveItemOnRefresh = () => {
-    const category = categories.find(c => c.localLink === window.location.pathname)
-    return (category) ? category.id : 0
+    let pathname = window.location.pathname.split('/')[window.location.pathname.split('/').length-1]
+    if(pathname === '') return 'inicio'
+    // return categories.find(c => c.id === pathname)[0].id
   }
-  const handlerClick = (el) => setActiveItem(parseInt(el.target.dataset.id))
+
+  const handlerClick = (el) => setActiveItem(el.target.dataset.id)
 
   useEffect(() => {
     setActiveItem(getActiveItemOnRefresh())
@@ -19,15 +21,15 @@ const SideBarList = ({ categories }) => {
 
   return (
     <ul className="list-group">
-      <Link to={'/coder-house-react/'} className={`${classes.resetLink} text-decoration-none text-white fs-5 mb-4`} >
-        <li onClick={handlerClick} data-id={0} data-link={'/coder-house-react/'} className={`d-flex justify-content-between border rounded mb-4 p-2 fs-5 border-3 ${((activeItem === 0) ? "border-warning" : "")}`}>
-          <div onClick={handlerClick} data-id={0} data-link={'/coderhouse-react/'}>Inicio</div>
+      <Link to={'/coder-house-react/'} className={`${classes.resetLink} text-decoration-none text-white fs-6 mb-4`} >
+        <li onClick={handlerClick} data-id="inicio" className={`d-flex justify-content-between border rounded p-2 border-3 ${((activeItem === 0) ? "border-warning" : "")}`}>
+          <div onClick={handlerClick} data-id="inicio">Inicio</div>
         </li>
       </Link >
       {
-        categories.map(category => {
+        categories.map(c => {
           return (
-            <SideBarElement key={category.id} id={category.id} name={category.name} quantity={category.quantity} localLink={category.localLink} apiLink={category.apiLink} evento={handlerClick} activeItem={activeItem} />
+            <SideBarElement key={c.id} id={c.id} name={c.name} evento={handlerClick} activeItem={activeItem} />
           )
         })
       }

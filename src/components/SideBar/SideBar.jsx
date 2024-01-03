@@ -1,49 +1,32 @@
 
 import { useEffect, useState } from 'react'
-// import Constans from "../../utils/Constants"
-import getCategories from '../../assets/mocks/AsyncCategories'
 import SideBarList from './SideBarList/SideBarList'
 import SideBarPlaceHolder from './SideBarPlaceHolder'
+import API from '../../configuration/config'
 
 const SideBar = () => {
   const [isError, setIsError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState(undefined)
 
   useEffect(() => {
 
     const fetchData = async () => {
 
       setIsLoading(true)
+      let url = API.ML.URL.CATEGORIES
 
       try {
 
-        let dummyCategories = []
-        // let res = null
+        let res = await fetch(url)
 
-        // res = await fetch(Constans.API_HP_SPELLS).then(res => res.json())
-        // dummyCategories.push({ id: 0, name: 'Hechizos', quantity: res.meta.pagination.records, link: res.links.current })
-
-        // res = await fetch(Constans.API_HP_BOOKS).then(res => res.json())
-        // dummyCategories.push({ id: 1, name: 'Libros', quantity: res.meta.pagination.records, link: res.links.current })
-
-        // res = await fetch(Constans.API_HP_MOVIES).then(res => res.json())
-        // dummyCategories.push({ id: 2, name: 'Peliculas', quantity: res.meta.pagination.records, link: res.links.current })
-
-        // res = await fetch(Constans.API_HP_CHARACTERS).then(res => res.json())
-        // dummyCategories.push({ id: 3, name: 'Personajes', quantity: res.meta.pagination.records, link: res.links.current })
-
-        // res = await fetch(Constans.API_HP_POTIONS).then(res => res.json())
-        // dummyCategories.push({ id: 4, name: 'Pociones', quantity: res.meta.pagination.records, link: res.links.current })
-
-        dummyCategories = await getCategories()
-
-        if (dummyCategories.length === 0) {
+        if (!res.ok) {
           setIsError(true)
-          throw new Error("Sin categorias que mostrar")
+          throw new Error(`Ocurrio un error al cargar (${url})`)
         }
 
-        setCategories(dummyCategories)
+        res = await res.json()
+        setCategories(res)
 
       } catch (error) {
 
@@ -52,14 +35,16 @@ const SideBar = () => {
 
       } finally {
 
-        setIsLoading(false)
+        setTimeout(() => { setIsLoading(false) }, 250)
 
       }
     }
+
     fetchData()
+
   }, [])
 
-  if (isLoading) {
+  if ((isLoading) | (categories === undefined)) {
     return (
       <SideBarPlaceHolder />
     )

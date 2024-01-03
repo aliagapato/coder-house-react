@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ItemCount from '../../../../components/Utils/ItemCount/ItemCount'
+import ItemCount from "../../Utils/ItemCount/ItemCount";
 
 const Item = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -7,7 +7,6 @@ const Item = ({ item }) => {
   const handleHover = () => {
     setIsHovered(!isHovered)
   }
-
 
   return (
     <div className="col-12 col-lg-4 mb-5">
@@ -17,8 +16,7 @@ const Item = ({ item }) => {
           <p className="card-text"></p>
         </div>
         <div className='card-body'>
-          {/* <img src={item.image} style={{ "maxWidth": "100%", "maxHeight": "80%", "objectFit": "scale-down" }} className="img card-img-top rounded" alt="..." /> */}
-          <img src={item.image} className="img card-img-top rounded" alt="..." />
+          <img src={item.thumbnail} className="img card-img-top rounded" alt="..." />
         </div>
         <div className='card-footer'>
           <ItemCount />

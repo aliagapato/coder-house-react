@@ -1,59 +1,21 @@
-import Item from "./Item/Item"
+import Item from "../../Utils/Item/Item";
 
-const ItemListContainer = ({ data, showExampleData = false }) => {
-
-  let item = null
-  let image = 'image'
-  let title = 'name'
-
-  switch (data[0].type) {
-    case 'book':
-      image = 'cover'
-      title = 'title'
-      break;
-
-    case 'character':
-      //
-      break;
-
-    case 'movie':
-      image = 'poster'
-      title = 'title'
-      break;
-
-    case 'potion':
-      //
-      break;
-
-    case 'spell':
-      break;
-  }
+const ItemListContainer = ({ items, showExampleData = false }) => {
 
   return (
     <>
-      <div className="container p-0">
+      <div className="container-fluid p-0">
         <div className="row">
-          {data.map(d => {
-            {
-              if (d.attributes[image]) {
-                item = {
-                  id: d.id,
-                  type: d.type,
-                  link: d.links.self,
-                  image: d.attributes[image],
-                  title: d.attributes[title]
-                }
-                return (
-                  <Item key={d.id} item={item} />
-                )
-              }
-            }
+          {items.map(i => {
+              return (
+                <Item key={i.id} item={i} />
+              )
           })
           }
         </div>
         <div hidden={!showExampleData} className="row">
           <div className="col">
-            <code style={{ 'whiteSpace': 'break-spaces' }}>{JSON.stringify(data[0], null, 4)}</code>
+            <code style={{ 'whiteSpace': 'break-spaces' }}>{JSON.stringify(items[0], null, 4)}</code>
           </div>
         </div>
       </div>
