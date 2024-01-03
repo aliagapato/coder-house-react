@@ -43,7 +43,7 @@ const ItemListContainer = () => {
 
     fetchData()
     
-  }, [category ])
+  }, [category])
 
 
   if ((isLoading) | (items === undefined)) {
