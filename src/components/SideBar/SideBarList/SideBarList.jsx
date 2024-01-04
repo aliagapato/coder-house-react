@@ -7,9 +7,10 @@ const SideBarList = ({ categories }) => {
   const [activeItem, setActiveItem] = useState('inicio')
 
   const getActiveItemOnRefresh = () => {
-    let pathname = window.location.pathname.split('/')[window.location.pathname.split('/').length-1]
-    if(pathname === '') return 'inicio'
-    // return categories.find(c => c.id === pathname)[0].id
+    let pathname = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
+    if (pathname === '') return 'inicio'
+    return pathname
+
   }
 
   const handlerClick = (el) => setActiveItem(el.target.dataset.id)
@@ -22,8 +23,8 @@ const SideBarList = ({ categories }) => {
   return (
     <ul className="list-group">
       <Link to={'/coder-house-react/'} className={`${classes.resetLink} text-decoration-none text-white fs-6 mb-4`} >
-        <li onClick={handlerClick} data-id="inicio" className={`d-flex justify-content-between border rounded p-2 border-3 ${((activeItem === 0) ? "border-warning" : "")}`}>
-          <div onClick={handlerClick} data-id="inicio">Inicio</div>
+        <li onClick={handlerClick} data-id={'inicio'} className={`d-flex justify-content-between border rounded p-2 border-3 ${((activeItem === 'inicio') ? "border-warning" : "")}`}>
+          <div onClick={handlerClick} data-id={'inicio'}>Inicio</div>
         </li>
       </Link >
       {
@@ -33,7 +34,7 @@ const SideBarList = ({ categories }) => {
           )
         })
       }
-    </ul >
+    </ul>
   )
 }
 
