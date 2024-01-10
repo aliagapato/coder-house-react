@@ -22,6 +22,9 @@ const Item = ({ item }) => {
           <img src={item.thumbnail} className="img-fluid rounded" alt="..." style={{ "minWidth": "70%" }} />
         </div>
         <div className='card-footer'>
+          <p className="fs-2 text-center"><strong>Precio: </strong>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'CLP' }).format(item.price)}</p>
+        </div>
+        <div className='card-footer'>
           {/* <ItemCount /> */}
           <Link to={`/coder-house-react/product/${item.id}`} className="border border-3 btn btn-outline-warning fw-bold w-100">Detalle <i className="bi bi-arrow-right-short"></i></Link>
         </div>
