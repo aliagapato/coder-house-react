@@ -22,7 +22,7 @@ const Item = ({ item }) => {
           <img src={item.thumbnail} className="img-fluid rounded" alt="..." style={{ "minWidth": "70%" }} />
         </div>
         <div className='card-footer'>
-          <p className="fs-2 text-center"><strong>Precio: </strong>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'CLP' }).format(item.price)}</p>
+          <p className="fs-2 text-center"><strong>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'CLP' }).format(item.price)}</strong></p>
         </div>
         <div className='card-footer'>
           {/* <ItemCount /> */}
