@@ -35,7 +35,7 @@ const HandlerDataLink = () => {
       } catch (error) {
 
         setIsError(true)
-        throw new Error(error.message)
+        throw new Error(error)
 
       } finally {
 

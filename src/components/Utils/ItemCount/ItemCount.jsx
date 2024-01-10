@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react"
 import evaluatePercentMessage from './../../../utils/EvaluatePercentMessage'
 
-const ItemCount = ({ stock = 5, initialVulue = 0 }) => {
+const ItemCount = ({ stock = 5, initialValue = 0 }) => {
 
-  const [quantity, setQuantity] = useState(initialVulue)
-  const msg = useRef(evaluatePercentMessage(stock, initialVulue))
+  const [quantity, setQuantity] = useState(initialValue)
+  const msg = useRef(evaluatePercentMessage(stock, initialValue))
 
   const add = () => {
     if (quantity < stock) {

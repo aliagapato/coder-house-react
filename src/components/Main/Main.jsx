@@ -3,11 +3,11 @@ import Content from '../Content/Content'
 
 const Main = () => {
   return (
-    <main className="container-fluid mt-4 p-0">
+    <main className="container-fluid mt-4 p-0" style={{"minHeight": "80vh"}}>
       <div className="row m-0 p-0">
         <div className="col col-12 col-lg-2 m-0 p-0">
           <button className="btn btn-outline-warning d-lg-none mb-4 w-100 fs-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Categorias</button>
-          <div className="alert alert-info d-none d-lg-block">Cambiar el tamaño a la ventana para ver el efecto de la sidebar (Categorias)</div>
+          {/* <div className="alert alert-info d-none d-lg-block">Cambiar el tamaño a la ventana para ver el efecto de la sidebar (Categorias)</div> */}
           <div className="offcanvas-lg offcanvas-start" tabIndex="-1" data-bs-scroll="true" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasResponsiveLabel">Categorias</h5>
