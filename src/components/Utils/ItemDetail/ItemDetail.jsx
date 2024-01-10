@@ -80,7 +80,7 @@ const ItemDetail = () => {
             </div>
           </div>
           <div className="col-12 col-lg-6 mb-3">
-            <div className="card border border-3 rounded p-5 h-100">
+            <div className="card border border-3 rounded p-5 h-100 justify-content-center">
               <p className="fs-2 text-start"><strong>Precio: </strong>${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'CLP' }).format(product.price)}</p>
               <p className="fs-2 text-start"><strong>Stock: </strong>{stock}</p>
               <div className="container-fluid px-0">
