@@ -15,7 +15,7 @@ const NavBar = ({ itemCount }) => {
           <div className="container-fluid">
             <div className="row justify-content-end">
               <div className="col-12 col-lg-4 m-0 p-0 my-4 my-lg-0">
-                <form role="search">
+                <form role="search" action="/coder-house-react/" method="GET">
                   <div className="container-fluid">
                     <div className="row p-0">
                       <div className="col-10 col-lg-11 p-0">
