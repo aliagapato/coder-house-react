@@ -4,25 +4,35 @@ const NavBar = ({ itemCount }) => {
   return (
     <nav className="navbar navbar-expand-lg p-0 m-0">
       <div className={"container-fluid border border-3 rounded p-2"}>
-        <a className="navbar-brand m-0" href="#">
+        <a className="navbar-brand ms-2 " href="/coder-house-react/">
           <i className="bi bi-book fs-2"></i>
+          <span className="ms-4 fs-2">Lumos Store</span>
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link fs-3" aria-current="page" href="#">Lumos Store</a>
-            </li>
-          </ul>
-          <form className="d-flex me-2 mb-4 mb-lg-0" role="search">
-            <input className="form-control me-2 border-warning" type="search" placeholder="Buscar" aria-label="Search" />
-            <button className="btn btn-warning" type="submit">
-              <i className="bi bi-search"></i>
-            </button>
-          </form>
-          <CartWidget itemCount={itemCount} />
+          <div className="container-fluid">
+            <div className="row justify-content-end">
+              <div className="col-12 col-lg-4 m-0 p-0 my-4 my-lg-0">
+                <form role="search">
+                  <div className="container-fluid">
+                    <div className="row p-0">
+                      <div className="col-10 col-lg-11 p-0">
+                        <input className="form-control pe-4 border-warning" type="search" placeholder="Buscar" aria-label="Search" />
+                      </div>
+                      <div className="col-2 col-lg-1 px-2">
+                        <button className="btn btn-warning" type="submit"><i className="bi bi-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div className="col-12 col-lg-1 p-0 px-lg-4">
+                <CartWidget itemCount={itemCount} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
