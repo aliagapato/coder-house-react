@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer'
 // import ItemCount from './components/Utils/ItemCount/ItemCount'
 
 function App() {
+  
   // Necesito un arreglo de objetos para controlar el carrito de compras
   const [itemCount, setItemCount] = useState(0)
 
