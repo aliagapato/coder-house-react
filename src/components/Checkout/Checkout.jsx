@@ -36,7 +36,7 @@ const Checkout = () => {
           navigate(`/order/${data.orderId}`)
         }, 500)
         
-      }, 3250))
+      }, 1750))
       .catch(() => document.getElementById("btnBuy").style.pointerEvents = 'auto')
   }
 
