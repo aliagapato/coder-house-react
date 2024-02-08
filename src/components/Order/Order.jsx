@@ -71,7 +71,7 @@ const Order = () => {
           <div className="container-fluid m-0 p-0">
 
             <div className="row m-0 p-0 mb-5 fs-3">
-              <div className="col col-12 col-lg-3 m-0 p-0 pt-2">
+              <div className="col col-12 col-lg-3 mb-4 m-lg-0 p-0 pt-2">
                 <strong><u>Orden de compra:</u></strong>
               </div>
               <div className="col col-12 col-lg-9 m-0 p-0 pt-2 ps-4 fs-3 text-start bg-body-tertiary border border-3 rounded">
@@ -82,7 +82,7 @@ const Order = () => {
             </div>
 
             <div className="row m-0 p-0 mb-5 fs-3">
-              <div className="col col-12 col-lg-3 m-0 p-0 pt-2">
+              <div className="col col-12 col-lg-3 mb-4 m-lg-0 p-0 pt-2">
                 <strong><u>Datos personales:</u></strong>
               </div>
               <div className="col col-12 col-lg-9 m-0 p-0 pt-2 ps-4 fs-3 text-start bg-body-tertiary border border-3 rounded">
@@ -93,7 +93,7 @@ const Order = () => {
             </div>
             
             <div className="row m-0 p-0 mb-5 fs-3">
-              <div className="col col-12 col-lg-3 m-0 p-0 pt-2">
+              <div className="col col-12 col-lg-3 mb-4 m-lg-0 p-0 pt-2">
                 <strong><u>Datos despacho:</u></strong>
               </div>
               <div className="col col-12 col-lg-9 m-0 p-0 pt-2 ps-4 fs-3 text-start bg-body-tertiary border border-3 rounded">
@@ -103,7 +103,7 @@ const Order = () => {
             </div>
 
             <div className="row m-0 p-0 mb-5 fs-3">
-              <div className="col col-12 col-lg-3 m-0 p-0 pt-2">
+              <div className="col col-12 col-lg-3 mb-4 m-lg-0 p-0 pt-2">
                 <strong><u>Productos:</u></strong>
               </div>
               <div className="col col-12 col-lg-9 m-0 p-0 fs-3 text-start bg-body-tertiary border border-3 rounded">
