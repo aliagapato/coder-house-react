@@ -1,16 +1,20 @@
 import { Routes, Route } from 'react-router-dom'
-// import Landing from '../Pages/Landing/Landing'
 import ErrorPath from '../Utils/ErrorPath/ErrorPath'
-import ItemListContainer from '../Utils/ItemListContainer/ItemListContainer'
-import ItemDetail from '../Utils/ItemDetail/ItemDetail'
+import ItemListContainer from '../ItemListContainer/ItemListContainer'
+import ItemDetail from '../ItemDetail/ItemDetail'
+import Checkout from '../Checkout/Checkout'
+import Order from '../Order/Order'
 
 const Content = () => {
   return (
     <>
       <Routes>
-        <Route path='/coder-house-react/' element={<ItemListContainer />} />
-        <Route path='/coder-house-react/category/:categoryId' element={<ItemListContainer />} />
-        <Route path='/coder-house-react/product/:productId' element={<ItemDetail />} />
+        <Route path='/' element={<ItemListContainer />} />
+        <Route path='/category/:categoryId' element={<ItemListContainer />} />
+        <Route path='/search/:searchValue' element={<ItemListContainer />} />
+        <Route path='/product/:productId' element={<ItemDetail />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/order/:orderId' element={<Order />} />
         <Route path='*' element={<ErrorPath />} />
       </Routes>
     </>

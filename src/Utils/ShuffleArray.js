@@ -1,5 +1,5 @@
 
-import randomInt from "./RandomInt"
+import randomInt from './randomInt'
 
 const ShuffleArray = (data) => {
   let newOrder = []

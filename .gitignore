@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
 
 # Editor directories and files
 .vscode/*
@@ -22,9 +23,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Created by https://www.toptal.com/developers/gitignore/api/react,visualstudiocode,intellij+all,macos,windows,linux
-# Edit at https://www.toptal.com/developers/gitignore?templates=react,visualstudiocode,intellij+all,macos,windows,linux
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -221,5 +219,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-# End of https://www.toptal.com/developers/gitignore/api/react,visualstudiocode,intellij+all,macos,windows,linux

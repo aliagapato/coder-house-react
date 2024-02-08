@@ -1,5 +1,5 @@
-const RandomInt = (max = 15) => {
+const randomInt = (max = 15) => {
   return Math.floor(Math.random() * max)
 }
 
-export default RandomInt
+export default randomInt

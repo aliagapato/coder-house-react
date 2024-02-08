@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import SideBarElement from "./SideBarElement/SideBarElement"
 import { Link } from "react-router-dom"
 import classes from './SideBarElement/SideBarElement.module.css'
+import SideBarElement from "./SideBarElement/SideBarElement"
 
 const SideBarList = ({ categories }) => {
   const [activeItem, setActiveItem] = useState('inicio')
@@ -21,18 +21,12 @@ const SideBarList = ({ categories }) => {
 
   return (
     <ul className="w-100 list-group">
-      <Link to={'/coder-house-react/'} className={`${classes.resetLink} text-decoration-none text-white fs-6 mb-4`} >
+      <Link to={'/'} className={`${classes.resetLink} text-decoration-none text-white mb-4`} >
         <li onClick={handlerClick} data-id={'inicio'} className={`d-flex justify-content-between border rounded p-2 border-3 ${((activeItem === 'inicio') ? "border-warning" : "")}`}>
           <div onClick={handlerClick} data-id={'inicio'}>Inicio</div>
         </li>
       </Link >
-      {
-        categories.map(c => {
-          return (
-            <SideBarElement key={c.id} id={c.id} name={c.name} evento={handlerClick} activeItem={activeItem} />
-          )
-        })
-      }
+      {categories && categories.map(c => <SideBarElement key={c.id} id={c.id} name={c.name} evento={handlerClick} activeItem={activeItem} />)}
     </ul>
   )
 }
