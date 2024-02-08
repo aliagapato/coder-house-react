@@ -6,10 +6,10 @@ import { useNavigate, Link } from "react-router-dom"
 
 const Checkout = () => {
   const { cart, getProductTotalPrice, buyCart } = useCartContext()
-  const [email, setEmail] = useState('correo@empresa.com')
-  const [name, setName] = useState('Pato Aliaga')
-  const [phone, setPhone] = useState(56978396444)
-  const [address, setAddress] = useState('Pasaje Puerto Mazatlan #3909, Puente Alto, Chile')
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState()
+  const [address, setAddress] = useState('')
   const navigate = useNavigate()
 
   const handleClickForm = async e => {
