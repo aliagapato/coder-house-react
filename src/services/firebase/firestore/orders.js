@@ -2,11 +2,13 @@ import { getDocs, collection, query, orderBy, doc, getDoc, writeBatch, where, do
 import { db } from "../firebaseConfig"
 import { createOrderAdaptedFromFirestore } from "../../../adapters/createOrderAdaptedFromFirestore"
 
-const getOrders = async (searchValue) => {
+const getOrders = async (searchValue = false) => {
   return await getDocs(query(collection(db, "orders"), orderBy("createdAt")))
     .then(querySnapshot => {
       let orders = querySnapshot.docs.map(doc => createOrderAdaptedFromFirestore(doc))
-      if(searchValue) orders = orders.filter(p => p.name.toLowerCase().includes(searchValue.toLowerCase()))
+      if(searchValue) {
+        orders = orders.filter(p => p.buyer.email.toLowerCase().includes(searchValue.toLowerCase()))
+      } 
       return orders
     })
     .catch(error => error)

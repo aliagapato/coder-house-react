@@ -36,13 +36,15 @@ export const CartContextProvider = ({ children }) => {
           launchToast('Producto eliminado', 'error')
         }
       }
-      localStorage.setItem('cart', JSON.stringify(newCart))
       newCart.sort((a, b) => a.name - b.name)
+      localStorage.setItem('cart', JSON.stringify(newCart))
       setCart(newCart)
     }
     const removeProduct = productId => {
-      localStorage.removeItem('cart')
-      setCart(cart.filter(p => p.id !== productId))
+      let newCart = cart.filter(p => p.id !== productId)
+      newCart.sort((a, b) => a.name - b.name)
+      setCart(newCart)
+      localStorage.setItem('cart', JSON.stringify(newCart))
     }
     const clearCart = (msg = true) => {
       localStorage.clear()

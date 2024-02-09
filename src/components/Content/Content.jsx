@@ -4,6 +4,8 @@ import ItemListContainer from '../ItemListContainer/ItemListContainer'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import Checkout from '../Checkout/Checkout'
 import Order from '../Order/Order'
+import Login from '../Login/Login'
+import Purchases from '../Purchases/Purchases'
 
 const Content = () => {
   return (
@@ -15,6 +17,8 @@ const Content = () => {
         <Route path='/product/:productId' element={<ItemDetail />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/order/:orderId' element={<Order />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/purchases/:email' element={<Purchases />} />
         <Route path='*' element={<ErrorPath />} />
       </Routes>
     </>

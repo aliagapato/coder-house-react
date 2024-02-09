@@ -48,6 +48,9 @@ const ItemDetail = () => {
             <p className="fs-2 text-start bg-body-tertiary border border-3 rounded p-2">
               <strong>Stock&nbsp;:&nbsp;</strong>{data.stock}
             </p>
+            <p className="fs-2 text-start bg-body-tertiary border border-3 rounded p-2">
+              <strong>SubTotal&nbsp;:&nbsp;</strong>{formatCurrency(getProductQuantity(productId)*data.price)}
+            </p>
             <div className="container-fluid px-0">
               <div className="row bg-body-tertiary border border-3 rounded text-center mx-0 mb-3 p-5 text-truncated">
                 <div className="col-12">

@@ -1,8 +1,12 @@
 import { useState } from "react"
 import CartWidget from "../Utils/CartWidget/CartWidget"
 import { Link, useNavigate } from "react-router-dom"
+import { useAuthContext } from "../../hooks/useAuthContext"
+import { useLogout } from "../../hooks/useLogout"
 
 const NavBar = () => {
+  const { user } = useAuthContext()
+  const { logout } = useLogout()
   const [searchValue, setSearchValue] = useState('')
   const navigate = useNavigate()
 
@@ -26,16 +30,23 @@ const NavBar = () => {
               <div className="col-12 col-lg-4 m-0 p-0 my-4 my-lg-0">
                 <div className="container-fluid">
                   <div className="row p-0">
-                    <div className="col-10 col-lg-11 p-0">
+                    <div className="col-12 col-lg-8 px-0">
                       <input className="form-control pe-4 border-warning" name="data" type="search" placeholder="Buscar" aria-label="Search" value={searchValue} onChange={e => setSearchValue(e.target.value)} onKeyDown={handleEnter}/>
                     </div>
-                    <div className="col-2 col-lg-1 px-2">
+                    <div className="col-12 col-lg-2 mt-4 mt-lg-0 pe-0">
                       <Link to={(searchValue === '') ? '/' : `/search/${searchValue}`} className="btn btn-warning" type="submit"><i className="bi bi-search"></i></Link>
+                    </div>
+                    <div className="col-12 col-lg-2 mt-4 mt-lg-0 px-2">
+                      {
+                        (user) 
+                        ? (<button className="btn btn-outline-danger" onClick={() => logout()}>Logout</button>)
+                        : (<Link className="btn btn-success" to="/login">Login</Link>) 
+                      }
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-1 p-0 px-lg-3">
+              <div className="col-12 col-lg-1 p-0 px-lg-4">
                 <CartWidget />
               </div>
             </div>

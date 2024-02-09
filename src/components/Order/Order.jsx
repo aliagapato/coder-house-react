@@ -8,45 +8,6 @@ import { useEffect } from "react"
 import useCartContext from "../../hooks/useCartContext"
 
 const Order = () => {
-  // const [loading, setLoading] = useState(false)
-  // const [data, setData] = useState({})
-  // const [error, setError] = useState(false)
-  // let { orderId } = useParams()
-  // // const { data, error, loading } = useAsync(() => getOrderById(orderId), {error: false})
-  // useEffect(() => {
-  //   try {
-  //     setLoading(true)
-  //     const exec = async () => {
-  //       const docRef = await doc(db, "orders", orderId)
-  //       getDoc(docRef).then(docSnap => {
-          
-  //         console.log('=========================')
-  //         console.log('docRef:', docRef)
-  //         console.log('docSnap:', docSnap)
-  //         console.log('docSnap.exists():', docSnap.exists())
-  //         console.log('=========================')
-          
-  //         if (docSnap.exists()) {
-  //           setData({
-  //             id: orderId,
-  //             ...docSnap.data()
-  //           })
-  //           console.log("Document data:", docSnap.data());
-  //         } else {
-  //           // docSnap.data() will be undefined in this case
-  //           setData({error: true})
-  //           console.log("No such document!");
-  //         }
-  //         setLoading(false)
-  //       });
-      
-  //     }
-  //     exec()
-  //   } catch (error) {
-  //     setLoading(false)
-  //     setError(true)
-  //   }
-  // }, [orderId])
   let { orderId } = useParams()
   const { cart, clearCart } = useCartContext()
   const { data, error, loading } = useAsync(() => getOrderById(orderId), {error: false}, [orderId])
@@ -62,7 +23,7 @@ const Order = () => {
   return (
     <div className="container-fluid text-center align-middle h-100">
       <div className="row justify-content-between">
-        <div className="col col-12 border border-3 rounded mb-4 px-5 pt-2" style={{overflowY: "auto", textWrap: "wrap", minHeight: "65vh", maxHeight: "65vh"}}>
+        <div className="col col-12 border border-3 rounded mb-4 px-5 pt-2" style={{overflowY: "auto", textWrap: "wrap", minHeight: "75vh", maxHeight: "75vh"}}>
           
           <div className="mb-4">
             <span className="fs-2"><u>Resumen de la compra:</u></span>
@@ -119,8 +80,8 @@ const Order = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {data.cart.map(p => { return (
-                        <tr key={p.id}>
+                      {data.cart.map((p, index) => { return (
+                        <tr key={p.id+index}>
                           <th scope="row" style={{ textAlign: "center", verticalAlign: "middle"}}><img src={p.img} className="img-fluid rounded" alt="..." style={{ "maxWidth": "70%" }} /></th>
                           <td className="text-jusitfy">{p.name}</td>
                           <td>{formatCurrency(p.price)}</td>

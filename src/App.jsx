@@ -5,19 +5,22 @@ import { ToastContextProvider } from './context/ToastContext'
 import NavBar from './components/NavBar/NavBar'
 import Main from './components/Main/Main'
 import Footer from './components/Footer/Footer'
+import { AuthContextProvider } from './context/AuthContext'
 
 function App() {
 
   return (
-    <ToastContextProvider>
-      <BrowserRouter>
-        <CartContextProvider>
-          <NavBar />
-          <Main />
-          <Footer />
-        </CartContextProvider>
-      </BrowserRouter>
-    </ToastContextProvider>
+    <AuthContextProvider>
+      <ToastContextProvider>
+        <BrowserRouter>
+          <CartContextProvider>
+            <NavBar />
+            <Main />
+            <Footer />
+          </CartContextProvider>
+        </BrowserRouter>
+      </ToastContextProvider>
+    </AuthContextProvider>
   )
 }
 

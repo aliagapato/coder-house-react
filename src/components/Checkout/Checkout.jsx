@@ -3,12 +3,14 @@ import CartProductDetail from "../CartProductDetail/CartProductDetail"
 import formatCurrency from "../../Utils/formatCurrency"
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 const Checkout = () => {
+  const { user } = useAuthContext()
   const { cart, getProductTotalPrice, buyCart } = useCartContext()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
-  const [phone, setPhone] = useState()
+  const [phone, setPhone] = useState(987654321)
   const [address, setAddress] = useState('')
   const navigate = useNavigate()
 
@@ -42,12 +44,16 @@ const Checkout = () => {
 
   useEffect(() => {
     document.getElementById("closeCartViewOffCanvas").click()
-  }, [])
+    if(user) {
+      setEmail(user.email)
+      setName(user.displayName)
+    }
+  }, [user])
 
   return (
     <div className="container-fluid text-center align-middle h-100">
       <div className="row justify-content-between">
-        <div className={`col col-12 col-lg-${(cart.length === 0) ? '12' : '7'} border border-3 rounded mb-4 p-0`} style={{overflowY: "auto", minHeight: "65vh", maxHeight: "65vh"}}>
+        <div className={`col col-12 col-lg-${(cart.length === 0) ? '12' : '7'} border border-3 rounded mb-4 p-0`} style={{overflowY: "auto", minHeight: "75vh", maxHeight: "75vh"}}>
             {(cart.length !== 0 ? cart.map((p, index) => <CartProductDetail key={p.id} product={p} lastIndex={((index+1) === cart.length)}/>) : <span className="fs-3">Sin productos aún 💔</span>)}
         </div>
         <div className={`col col-12 col-lg-4 border border-3 rounded mb-4 p-4 fs-6 ${(cart.length === 0) ? 'd-none' : ''}`}>
@@ -93,7 +99,7 @@ const Checkout = () => {
           <Link to="/" className="btn btn-warning w-100"><h2>Seguir comprando 😂</h2></Link>
         </div>
         <div className={`col col-12 col-lg-4 p-0 m-0 mb-4 text-center ${(cart.length === 0) ? 'd-none' : ''}`}>
-          <button id="btnBuy" onClick={handleClickForm} disabled={!((email.includes('@') && name && phone))} className="btn btn-success w-100"><h2>{(email.includes('@') && name && phone) ? ('Finalizar compra! 🤘') : ('Completa tus datos 👩‍💻')}</h2></button>
+          <button id="btnBuy" onClick={handleClickForm} disabled={!((email.includes('@') && name && phone && address))} className="btn btn-success w-100"><h2>{(email.includes('@') && name && phone) ? ('Finalizar compra! 🤘') : ('Completa tus datos 👩‍💻')}</h2></button>
         </div>
       </div>
     </div>

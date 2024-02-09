@@ -2,7 +2,7 @@ import formatCurrency from "../../Utils/formatCurrency"
 import useCartContext from "../../hooks/useCartContext"
 
 const CartProductDetail = ({product, lastIndex}) => {
-  const {updateProduct} = useCartContext()
+  const {updateProduct, removeProduct} = useCartContext()
 
   const incrementQuantity = () => {
     if (product.quantity < product.stock) {
@@ -16,6 +16,10 @@ const CartProductDetail = ({product, lastIndex}) => {
       let nextValue = product.quantity - 1
       updateProduct({id: product.id, name: product.name, img: product.img, price: product.price, quantity: nextValue})
     }
+  }
+
+  const removeItemFromCart = () => {
+    removeProduct(product.id)
   }
 
   return (
@@ -48,6 +52,11 @@ const CartProductDetail = ({product, lastIndex}) => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row p-0 m-0 mt-4">
+          <div className="col">
+            <button onClick={removeItemFromCart} className="btn btn-outline-danger fs-5 w-100 px-4">Eliminar producto <i className="bi bi-trash-fill fst-normal"></i></button>
           </div>
         </div>
       </div>
